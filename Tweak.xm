@@ -283,12 +283,22 @@ static void handleTapGesture(UITapGestureRecognizer *gesture) {
 %end
 
 %hook AVCaptureSession
-- (void)startRunning { %orig; }
-- (void)stopRunning { %orig; }
+
+- (void)startRunning {
+    %orig;
+}
+
+- (void)stopRunning {
+    %orig;
+}
+
 %end
 
 %hook AVCapturePhotoOutput
-- (void)capturePhotoWithSettings:(AVCapturePhotoSettings *)settings delegate:(id<AVCapturePhotoCaptureDelegate>)delegate { %orig; }
+- (void)capturePhotoWithSettings:(AVCapturePhotoSettings *)settings
+                        delegate:(id<AVCapturePhotoCaptureDelegate>)delegate {
+    %orig;
+}
 %end
 %end
 
